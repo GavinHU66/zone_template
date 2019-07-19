@@ -1,0 +1,83 @@
+@import "./public.scss";
+
+/* navbar */
+$--nav-height: 50px;
+.navbar-container {
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: $--nav-height;
+  width: 100%;
+  background-color: $--color-primary;
+  border-bottom: 1px solid darken($--color-primary, 4%);
+  .navbar {
+    width: $--md;
+    margin: auto;
+    .logo {
+      height: $--nav-height;
+      line-height: $--nav-height;
+      font-size: $--font-size-large;
+      a {
+        font-weight: bold;
+        color: $--color-white;
+      }
+    }
+    .nav {
+
+      img {
+        margin-right: 10px;
+        width: 28px;
+        float: left;
+        position: relative;
+        top: 8px;
+      }
+
+      & > li {
+        float: left;
+        position: relative;
+        &.show {
+          background-color: darken($--color-primary, 30%);
+          .sub-nav {
+            visibility: visible;
+          }
+        }
+        & > a {
+          font-weight: bold;
+          display: block;
+          padding: 0 16px;
+          height: $--nav-height;
+          line-height: $--nav-height;
+          color: $--color-white;
+          font-size: $--font-size-base;
+        }
+        .sub-nav {
+          position: absolute;
+          width: 75px;
+          right: 0;
+          transition: $--visibility-transition;
+          visibility: hidden;
+          background-color: $--color-white;
+          box-sizing: border-box;
+          padding: 8px 0;
+          border: $--border-base;
+          border-top: 0;
+          // border-radius: $--border-radius-base;
+          & > li {
+            padding: 4px 10px;
+            &.hover {
+              background-color: $--background-color-base;
+            }
+            a {
+              font-size: $--font-size-small;
+              color: $--color-text-regular;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
